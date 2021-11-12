@@ -15,5 +15,6 @@ SELECT
     publisher,
     skin_color,
     alignment,
-    weight
+    weight AS weight_lbs,
+    {{ lbs_to_kgs('weight') }} AS weight_kg
 FROM {{ source('tutorial', 'superheroes') }}
